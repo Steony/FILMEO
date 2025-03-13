@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Séries - FILMEO</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .form-control::placeholder {
+            color: white !important; /* Change la couleur du placeholder en blanc */
+        }
+    </style>
+</head>
+<body style="background-color: #121212; color: white;">
+
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/home">FILMEO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/films" style="color: white;">Films</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/series" style="color: white;">Séries</a>
+                    </li>
+                </ul>
+                <!-- Formulaire de recherche -->
+                <form class="d-flex ms-auto" action="#" method="get">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Recherche une série" aria-label="Search" style="background-color: transparent; border: 1px solid white; color: white; border-radius: 10px; padding-right: 10px;">
+                        <button class="btn" type="submit" style="background: transparent; border: none;">
+                            <i class="fas fa-search" style="color: white;"></i>
+                        </button>
+                    </div>
+                </form>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/inscription" style="color: white;">Inscription</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/connexion" style="color: white;">Connexion</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background: #121212;">
+        <div>
+            <h1 class="text-center text-light">Séries</h1>
+            <p class="text-center text-light">Voici la liste des séries disponibles.</p>
+
+            <!-- Liste des séries -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Titre</th>
+                                    <th scope="col">Nombre de Saisons</th>
+                                    <th scope="col">Nombre d'Épisodes</th>
+                                    <th scope="col">Statut</th>
+                                    <th scope="col">Pays</th> <!-- Nouvelle colonne pour la nationalité -->
+                                    <th scope="col">Casting</th> <!-- Nouvelle colonne pour les acteurs -->
+                                    <th scope="col">Réalisateur</th> <!-- Nouvelle colonne pour le réalisateur -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Boucle pour afficher les séries -->
+                                <tr th:each="serie : ${series}">
+                                    <td th:text="${serie.titre}">Titre de la série</td>
+                                    <td th:text="${serie.nombreSaison}">Nombre de Saisons</td>
+                                    <td th:text="${serie.nombreEpisode}">Nombre d'Épisodes</td>
+                                    <td th:text="${serie.status ? 'En cours' : 'Terminée'}">Statut</td>
+                                    
+                                    <!-- Afficher la nationalité de la série -->
+                                    <td th:text="${serie.nationalite.nom}">Nationality</td>
+                                    <!-- Afficher les acteurs dans une colonne Casting -->
+                                    <td>
+                                        <ul>
+                                            <li th:each="acteur : ${serie.personnes}" th:text="${acteur.nom} + ' ' + ${acteur.prenom}">Actor Name</li>
+                                        </ul>
+                                    </td>
+                                    <!-- Afficher le réalisateur -->
+                                    <td th:text="${serie.realisateur.nom} + ' ' + ${serie.realisateur.prenom}">Director Name</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

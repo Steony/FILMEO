@@ -1,0 +1,60 @@
+<main th:fragment="content" class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background: #121212;">
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="login-container bg-dark p-5 rounded" style="max-width: 500px; width: 100%;">
+            <h2 class="text-center mb-4 text-light">Inscription</h2>
+
+            <form method="post" th:object="${user}">
+                <h5 class="text-center mb-4 text-light">Rejoignez notre communauté</h5>
+
+                <!-- Pseudo -->
+                <div class="mb-3">
+                    <label for="pseudo" class="form-label text-light">Pseudo</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-dark text-light"><i class="fa fa-user"></i></span>
+                        <input type="text" name="pseudo" class="form-control text-light" th:class="${'form-control' + (#fields.hasErrors('pseudo') ? ' is-invalid' : '')}" placeholder="Votre pseudo" required>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('pseudo')}" th:errors="*{pseudo}"></div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label text-light">Email</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-dark text-light"><i class="fa fa-envelope"></i></span>
+                        <input type="email" name="email" class="form-control text-light" th:class="${'form-control' + (#fields.hasErrors('email') ? ' is-invalid' : '')}" placeholder="exemple@email.com" required>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                    </div>
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="mb-3">
+                    <label for="password" class="form-label text-light">Mot de passe</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-dark text-light"><i class="fa fa-lock"></i></span>
+                        <input type="password" name="password" class="form-control text-light" th:class="${'form-control' + (#fields.hasErrors('password') ? ' is-invalid' : '')}" placeholder="Votre mot de passe" required>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                    </div>
+                </div>
+
+                <!-- Boutons -->
+                <div class="d-flex mt-5 justify-content-center">
+                    <button type="submit" class="btn btn-custom w-100" style="background-color: #6100C2; border-color: #6100C2; color: white;">
+                        <i class="fa fa-save me-2" style="color: white;"></i> S'inscrire
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<style>
+    /* Changer la couleur des placeholders */
+    ::placeholder {
+        color: #B0B0B0 !important; 
+    }
+
+    /* Changer la couleur du texte quand l'input est actif */
+    input:focus, input:active {
+        color: white;
+    }
+</style>

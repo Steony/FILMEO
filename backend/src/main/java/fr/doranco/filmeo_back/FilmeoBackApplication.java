@@ -1,13 +1,13 @@
-package com.film.filmeo;
+package fr.doranco.filmeo_back;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FilmeoApplication {
+public class FilmeoBackApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FilmeoApplication.class, args);
+		SpringApplication.run(FilmeoBackApplication.class, args);
 	}
 
 }

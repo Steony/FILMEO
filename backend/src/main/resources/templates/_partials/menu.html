@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark" th:fragment="menu" style="background-color: #000;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/home">FILMEO</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/films" style="color: white;">Films</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/series" style="color: white;">Séries</a>
+                </li>
+            </ul>
+  
+            <!-- Formulaire de recherche -->
+            <form class="d-flex ms-auto" action="#" method="get">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                        style="background-color: transparent; border: 1px solid white; color: white; border-radius: 10px; padding-right: 10px;" />
+                    <button class="btn" type="submit" style="background: transparent; border: none;">
+                        <i class="fas fa-search" style="color: white;"></i>
+                    </button>
+                </div>
+            </form>
+  
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/inscription" style="color: white;">Inscription</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/connexion" style="color: white;">Connexion</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Ajouter un style CSS pour le placeholder -->
+    <style>
+        .form-control::placeholder {
+            color: white !important; /* Change la couleur du placeholder en blanc */
+        }
+    </style>
+</nav>

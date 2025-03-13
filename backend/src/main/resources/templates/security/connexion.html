@@ -1,0 +1,48 @@
+<main th:fragment="content" class="d-flex justify-content-center align-items-center" style="min-height: 100vh; background: #121212;">
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="login-container bg-dark p-5 rounded" style="max-width: 500px; width: 100%;">
+            <h2 class="text-center mb-4 text-light">Connexion</h2>
+
+            <form method="post">
+                <h5 class="text-center mb-4 text-light">Profitez des derniers films</h5>
+
+                <!-- Pseudo -->
+                <div class="mb-3">
+                    <label for="username" class="form-label text-light" style="color: #6100C2;">Pseudo</label> <!-- Changer la couleur du label -->
+                    <div class="input-group">
+                        <span class="input-group-text bg-dark text-light"><i class="fa fa-user"></i></span>
+                        <input type="text" id="username" name="username" class="form-control" style="background-color: white; border: 1px solid #6100C2; color: #B0B0B0;" placeholder="Entrez votre pseudo" required> <!-- Fond blanc et texte gris -->
+                    </div>
+                </div>
+
+                <!-- Mot de passe -->
+                <div class="mb-3">
+                    <label for="password" class="form-label text-light" style="color: #6100C2;">Mot de passe</label> <!-- Changer la couleur du label -->
+                    <div class="input-group">
+                        <span class="input-group-text bg-dark text-light"><i class="fa fa-lock"></i></span>
+                        <input type="password" id="password" name="password" class="form-control" style="background-color: white; border: 1px solid #6100C2; color: #B0B0B0;" placeholder="Votre mot de passe" required> <!-- Fond blanc et texte gris -->
+                    </div>
+                </div>
+
+                <!-- Bouton centré -->
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-custom w-100" style="background-color: #6100C2; border-color: #6100C2; color: white;">
+                        <i class="fa fa-sign-in-alt"></i> Se connecter
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<style>
+    /* Changer la couleur des placeholders */
+    ::placeholder {
+        color: #B0B0B0 !important; /* Gris clair pour les placeholders */
+    }
+
+    /* Optionnel : Changer la couleur du texte quand l'input est actif */
+    input:focus, input:active {
+        color: white;
+    }
+</style>
