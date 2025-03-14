@@ -6,11 +6,6 @@
     <title>Films - FILMEO</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .form-control::placeholder {
-            color: white !important; /* Change la couleur du placeholder en blanc */
-        }
-    </style>
 </head>
 <body style="background-color: #121212; color: white;">
 
@@ -28,23 +23,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/series" style="color: white;">Séries</a>
-                    </li>
-                </ul>
-                <!-- Formulaire de recherche -->
-                <form class="d-flex ms-auto" action="#" method="get">
-                    <div class="input-group">
-                        <input class="form-control" type="search" placeholder="Rechercher un film" aria-label="Search" style="background-color: transparent; border: 1px solid white; color: white; border-radius: 10px; padding-right: 10px;">
-                        <button class="btn" type="submit" style="background: transparent; border: none;">
-                            <i class="fas fa-search" style="color: white;"></i>
-                        </button>
-                    </div>
-                </form>
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/inscription" style="color: white;">Inscription</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/connexion" style="color: white;">Connexion</a>
                     </li>
                 </ul>
             </div>
@@ -69,9 +47,9 @@
                                     <th scope="col">Date de sortie</th>
                                     <th scope="col">Genre</th>
                                     <th scope="col">Pays</th>
-                                    <th scope="col">Casting</th> <!-- Colonne Casting -->
-                                    <th scope="col">Réalisateur</th> <!-- Colonne Réalisateur -->
-                                    <th scope="col">Plateforme(s)</th> <!-- Nouvelle colonne pour les plateformes -->
+                                    <th scope="col">Casting</th>
+                                    <th scope="col">Réalisateur</th>
+                                    <th scope="col">Plateforme(s)</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -81,12 +59,12 @@
                                     <td th:text="${film.dateSortie}">Release Date</td>
                                     <td th:text="${film.genre.libelle}">Genre</td>
                                     <td th:text="${film.nationalite.nom}">Nationality</td>
-                                    <td> <!-- Casting -->
+                                    <td>
                                         <ul>
                                             <li th:each="acteur : ${film.personnes}" th:text="${acteur.nom} + ' ' + ${acteur.prenom}">Actor Name</li>
                                         </ul>
                                     </td>
-                                    <td th:text="${film.realisateur.nom} + ' ' + ${film.realisateur.prenom}">Director Name</td> <!-- Réalisateur -->
+                                    <td th:text="${film.realisateur.nom} + ' ' + ${film.realisateur.prenom}">Director Name</td>
                                     <td>
                                         <ul>
                                             <li th:each="plateforme : ${film.plateformes}" th:text="${plateforme.nom}">Platform Name</li>

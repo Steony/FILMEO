@@ -62,12 +62,13 @@ public class FilmService {
         Nationalite nationalite = nationaliteRepository.findById(nationaliteId)
             .orElseThrow(() -> new RuntimeException("Nationalité not found"));
         film.setNationalite(nationalite);
-
+    
         List<Personne> personnes = personneRepository.findAllById(personneIds);
         film.setPersonnes(personnes);
-
+    
         return filmRepository.save(film);
     }
+    
 
     public Film updateFilm(Long id, Film filmDetails) {
         Film film = filmRepository.findById(id).orElseThrow(() -> new RuntimeException("Film not found"));

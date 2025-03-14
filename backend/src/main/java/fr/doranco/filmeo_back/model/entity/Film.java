@@ -24,7 +24,7 @@ public class Film {
     private Date dateSortie;
 
     // Relation ManyToMany avec Personne (réalisateurs, acteurs)
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
         name = "film_personne",
         joinColumns = @JoinColumn(name = "film_id"),
